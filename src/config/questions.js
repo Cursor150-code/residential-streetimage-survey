@@ -70,21 +70,20 @@ export const displayedImages = generateQuestionImages();
 // 🔧 TO CUSTOMIZE: Edit the questions below or add/remove questions as needed.
 
 export const demographicQuestions = [
-  // 🔧 RESIDENTIAL COMMUNITY TYPE - Critical for research
+  // 🔧 RESIDENTIAL COMMUNITY TYPE - Simplified version
   {
     name: "community_type",
     title: "您居住的住区类型是？",
     type: "radiogroup",
     choices: [
-      "LCZ1-密集高层建筑区",
-      "LCZ2-密集中层建筑区", 
-      "LCZ3-密集低层建筑区",
-      "LCZ4-高层开放建筑区", 
-      "LCZ5-中层开放建筑区",
-      "LCZ6-低层开放建筑区",
-      "LCZ7-轻量化低层建筑区",
-      "LCZ8-大型低层建筑区",
-      "LCZ9-稀疏建筑区"
+      "高层密集住区（高楼密集布局）",
+      "高层开放住区（高楼疏散布局）", 
+      "多层密集住区（中高楼密集布局）",
+      "多层开放住区（中高楼疏散布局）", 
+      "低层密集住区（低楼密集布局）",
+      "低层开放住区（低楼疏散布局）",
+      "混合型住区（多种建筑类型混合）",
+      "不确定"
     ],
     isRequired: true
   },
@@ -121,7 +120,7 @@ export const demographicQuestions = [
   // 🔧 RESIDENCE DURATION
   {
     name: "residence_duration",
-    title: "您在当前住区居住了多长时间？",
+    title: "您在当前城市居住了多长时间？",
     type: "radiogroup",
     choices: [
       "少于1年",
@@ -145,21 +144,6 @@ export const demographicQuestions = [
       "每月几次", 
       "很少",
       "从不"
-    ],
-    isRequired: true
-  },
-  
-  // 🔧 THERMAL SENSITIVITY
-  {
-    name: "thermal_sensitivity",
-    title: "您对温度变化的敏感程度？",
-    type: "radiogroup",
-    choices: [
-      "非常敏感",
-      "比较敏感",
-      "一般",
-      "不太敏感",
-      "不敏感"
     ],
     isRequired: true
   }
@@ -498,12 +482,12 @@ export const surveyPages = [
         title: "请拖拽排序以下影响热舒适的因素，从最重要（顶部）到最不重要（底部）：",
         isRequired: true,
         choices: [
-          { value: "shading", text: "阴影和遵阳" },
-          { value: "greenery", text: "绿化和植被" },
-          { value: "ventilation", text: "通风和空气流动" },
-          { value: "building_layout", text: "建筑布局和密度" },
-          { value: "water_features", text: "水体和喷泉" },
-          { value: "pavement_material", text: "路面材料和颜色" },
+          { value: "shading", text: "阴影遮阳" },
+          { value: "greenery", text: "绿化植被" },
+          { value: "ventilation", text: "自然通风" },
+          { value: "building_layout", text: "建筑密度和布局" },
+          { value: "water_features", text: "水体或喷泉" },
+          { value: "pavement_material", text: "环境材料和颜色" },
           { value: "street_width", text: "街道宽度和开放性" }
         ]
       }
@@ -519,7 +503,7 @@ export const surveyPages = [
 export const surveyJson = {
   // 🔧 SURVEY TITLE AND DESCRIPTION
   title: "住区街景热舒适感知调研",
-  description: "您好！我们正在进行一项关于不同类型住区街道热舒适感知的研究。该研究基于热负担能力（Thermal Affordance）理论，旨在了解哪些空间要素影响人们的热舒适感受。您的参与将为构建更舒适、可持续的城市环境提供科学依据。调研预计需要15-20分钟。"
+  description: "您好！我们正在进行一项关于不同类型住区街道热舒适感知的研究。该研究旨在了解哪些空间要素影响人们的热舒适感受。您的参与将为构建更舒适、可持续的城市居住环境提供科学依据。调研预计需要10-15分钟。"
   
   // 🔧 SURVEY STRUCTURE
   pages: surveyPages, // Uses the pages defined above
