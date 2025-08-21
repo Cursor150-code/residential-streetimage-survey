@@ -70,16 +70,16 @@ export const displayedImages = generateQuestionImages();
 // 🔧 TO CUSTOMIZE: Edit the questions below or add/remove questions as needed.
 
 export const demographicQuestions = [
-  // 🔧 RESIDENTIAL COMMUNITY TYPE - Simplified version
+  // 🔧 RESIDENTIAL COMMUNITY TYPE - 8 comprehensive options
   {
     name: "community_type",
     title: "您居住的住区类型是？",
     type: "radiogroup",
     choices: [
       "高层密集住区（高楼密集布局）",
-      "高层开放住区（高楼疏散布局）", 
+      "高层开放住区（高楼疏散布局）",
       "多层密集住区（中高楼密集布局）",
-      "多层开放住区（中高楼疏散布局）", 
+      "多层开放住区（中高楼疏散布局）",
       "低层密集住区（低楼密集布局）",
       "低层开放住区（低楼疏散布局）",
       "混合型住区（多种建筑类型混合）",
