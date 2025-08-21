@@ -1,0 +1,9 @@
+{
+  "name": "residential-streetimage-survey",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+} 
