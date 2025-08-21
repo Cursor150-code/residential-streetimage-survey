@@ -24,25 +24,37 @@ import { getRandomImages } from './streetImages.js';
 
 const generateQuestionImages = () => {
   const questionImages = {
-    // 🔧 PERCEPTION QUESTIONS (Part 2)
+    // 🔧 THERMAL AFFORDANCE QUESTIONS (Part 2) - Based on VATA Framework
     // Format: question_name: getRandomImages("question_name", number_of_images)
-    safety_perception: getRandomImages("safety_perception", 2),           // 2 images, choose 1
-    attractiveness_perception: getRandomImages("attractiveness_perception", 2), // 2 images, choose 1
-    walkability_perception: getRandomImages("walkability_perception", 2),       // 2 images, choose 1
-    liveliness_perception: getRandomImages("liveliness_perception", 4),         // 4 images, choose 1
-    relaxation_perception: getRandomImages("relaxation_perception", 4),         // 4 images, choose 1
-    cleanliness_perception: getRandomImages("cleanliness_perception", 4),       // 4 images, choose 1
+    thermal_affordance: getRandomImages("thermal_affordance", 2),           // Core VATA question
+    temperature_intensity: getRandomImages("temperature_intensity", 2),       // Microclimate inference
+    sunshine_intensity: getRandomImages("sunshine_intensity", 2),             // Microclimate inference
+    humidity_inference: getRandomImages("humidity_inference", 2),             // Microclimate inference
+    wind_inference: getRandomImages("wind_inference", 2),                     // Microclimate inference
     
-    // 🔧 OTHER QUESTIONS (Parts 3-6)
-    // Each shows 1 random image alongside the question
-    comfort_rating: getRandomImages("comfort_rating", 1),     // Part 3: Rating scale
-    street_elements: getRandomImages("street_elements", 1),   // Part 4: Checkbox elements
-    feature_ranking: getRandomImages("feature_ranking", 1),   // Part 5: Ranking
-    open_feedback: getRandomImages("open_feedback", 1)        // Part 6: Text feedback
+    // 🔧 ENVIRONMENTAL ASSESSMENT QUESTIONS (Part 3)
+    traffic_flow: getRandomImages("traffic_flow", 2),                         // Environmental evaluation
+    greenery_rate: getRandomImages("greenery_rate", 2),                       // Environmental evaluation
+    shading_area: getRandomImages("shading_area", 2),                         // Environmental evaluation
+    material_comfort: getRandomImages("material_comfort", 2),                 // Environmental evaluation
     
-    // 🔧 TO ADD NEW IMAGE QUESTIONS:
-    // 1. Add a new line here: your_question_name: getRandomImages("your_question_name", count),
-    // 2. Use displayedImages.your_question_name in the question definition below
+    // 🔧 DESIGN QUALITY QUESTIONS (Part 4)
+    imageability: getRandomImages("imageability", 2),                         // Design quality
+    enclosure: getRandomImages("enclosure", 2),                               // Design quality
+    human_scale: getRandomImages("human_scale", 2),                           // Design quality
+    transparency: getRandomImages("transparency", 2),                         // Design quality
+    complexity: getRandomImages("complexity", 2),                             // Design quality
+    
+    // 🔧 EMOTIONAL RESPONSE QUESTIONS (Part 5)
+    safe_feeling: getRandomImages("safe_feeling", 2),                         // Evoked emotion
+    beautiful_feeling: getRandomImages("beautiful_feeling", 2),               // Evoked emotion
+    lively_feeling: getRandomImages("lively_feeling", 2),                     // Evoked emotion
+    wealthy_feeling: getRandomImages("wealthy_feeling", 2),                   // Evoked emotion
+    boring_feeling: getRandomImages("boring_feeling", 2),                     // Evoked emotion
+    depressing_feeling: getRandomImages("depressing_feeling", 2),             // Evoked emotion
+    
+    // 🔧 OTHER QUESTIONS (Part 6)
+    feature_ranking: getRandomImages("feature_ranking", 1)   // Part 6: Ranking
   };
   
   return questionImages;
@@ -58,72 +70,73 @@ export const displayedImages = generateQuestionImages();
 // 🔧 TO CUSTOMIZE: Edit the questions below or add/remove questions as needed.
 
 export const demographicQuestions = [
-  // 🔧 AGE QUESTION - Multiple choice
-  // TO MODIFY: Change age ranges in the choices array
+  // 🔧 RESIDENTIAL COMMUNITY TYPE - Critical for research
+  {
+    name: "community_type",
+    title: "您居住的住区类型是？",
+    type: "radiogroup",
+    choices: [
+      "LCZ1-密集高层建筑区",
+      "LCZ2-密集中层建筑区", 
+      "LCZ3-密集低层建筑区",
+      "LCZ4-高层开放建筑区", 
+      "LCZ5-中层开放建筑区",
+      "LCZ6-低层开放建筑区",
+      "LCZ7-轻量化低层建筑区",
+      "LCZ8-大型低层建筑区",
+      "LCZ9-稀疏建筑区"
+    ],
+    isRequired: true
+  },
+  
+  // 🔧 GENDER QUESTION
+  {
+    name: "gender",
+    title: "您的性别是？",
+    type: "radiogroup",
+    choices: [
+      "男",
+      "女"
+    ],
+    isRequired: true
+  },
+  
+  // 🔧 AGE QUESTION
   {
     name: "age",
-    title: "您的年龄段是？",
+    title: "您的年龄是？",
     type: "radiogroup",
     choices: [
       "18岁以下",
-      "18-24岁", 
-      "25-34岁",
-      "35-44岁", 
-      "45-54岁",
-      "55-64岁",
-      "65岁或以上"
+      "18~24岁", 
+      "25~30岁",
+      "31~40岁", 
+      "41~50岁",
+      "51~60岁",
+      "61岁及以上"
     ],
-    isRequired: false // Keep false to make optional
+    isRequired: true
   },
   
-  // 🔧 LOCATION QUESTION - Text input
-  // TO MODIFY: Change the title text or make it more specific
+  // 🔧 RESIDENCE DURATION
   {
-    name: "location",
-    title: "您来自哪里？（城市，国家）",
-    type: "text", // Use "text" for single line, "comment" for multi-line
-    isRequired: false
-  },
-  
-  // 🔧 INCOME QUESTION - Multiple choice
-  // TO MODIFY: Adjust income ranges for your target population/currency
-  {
-    name: "income",
-    title: "您的家庭收入水平是？",
-    type: "radiogroup", 
-    choices: [
-      "5万元以下",
-      "5万-10万元",
-      "10万-20万元", 
-      "20万-30万元",
-      "30万元以上",
-      "不便透露"
-    ],
-    isRequired: false
-  },
-  
-  // 🔧 EDUCATION QUESTION - Multiple choice
-  // TO MODIFY: Adjust education levels for your region's system
-  {
-    name: "education",
-    title: "您的最高学历是？",
+    name: "residence_duration",
+    title: "您在当前住区居住了多长时间？",
     type: "radiogroup",
     choices: [
-      "高中或以下",
-      "大专/大学在读",
-      "本科学历", 
-      "硕士学历",
-      "博士学历",
-      "其他"
+      "少于1年",
+      "1-3年",
+      "3-5年",
+      "5-10年",
+      "10年以上"
     ],
-    isRequired: false
+    isRequired: true
   },
   
-  // 🔧 OUTDOOR ACTIVITY QUESTION - Multiple choice
-  // TO MODIFY: Change to any frequency-based question relevant to your research
+  // 🔧 OUTDOOR ACTIVITY FREQUENCY
   {
     name: "outdoor_activity",
-    title: "您多久参与一次户外活动？",
+    title: "您在住区内进行户外活动的频率？",
     type: "radiogroup",
     choices: [
       "每天",
@@ -133,7 +146,22 @@ export const demographicQuestions = [
       "很少",
       "从不"
     ],
-    isRequired: false
+    isRequired: true
+  },
+  
+  // 🔧 THERMAL SENSITIVITY
+  {
+    name: "thermal_sensitivity",
+    title: "您对温度变化的敏感程度？",
+    type: "radiogroup",
+    choices: [
+      "非常敏感",
+      "比较敏感",
+      "一般",
+      "不太敏感",
+      "不敏感"
+    ],
+    isRequired: true
   }
   
   // 🔧 TO ADD NEW DEMOGRAPHIC QUESTIONS:
@@ -163,98 +191,79 @@ export const surveyPages = [
   // ========================================
   {
     name: "demographics",
-    title: "第一部分：背景信息（可选）", // 🔧 Change page title here
-    description: "请简单介绍一下您自己。所有问题均为可选，可以跳过。", // 🔧 Change page description
-    elements: demographicQuestions // Uses the demographic questions defined above
+    title: "第一部分：背景信息",
+    description: "请提供一些关于您和您的住区的基本信息。这将帮助我们更好地理解不同类型住区的热舒适感知差异。",
+    elements: demographicQuestions
   },
   
   // ========================================
-  // 📄 PAGE 2: STREET PERCEPTION QUESTIONS  
+  // 📄 PAGE 2: THERMAL AFFORDANCE ASSESSMENT (VATA Core)
   // ========================================
-  // This page contains 6 image-based perception questions
   {
-    name: "street_perception", 
-    title: "第二部分：街道感知", // 🔧 Change page title here
-    description: "请基于不同维度评估不同的街道环境。", // 🔧 Change page description
+    name: "thermal_affordance", 
+    title: "第二部分：热舒适感知评估",
+    description: "请根据您的直觉感受，评估下列街道环境的热舒适性。",
     elements: [
-      // 🔧 PAGE INSTRUCTIONS - Displayed at the top of the page
       {
         type: "expression",
-        name: "perception_instruction",
-        title: "在本部分中，您将看到不同组合的街道图片。请选择最符合每个问题的图片。", // 🔧 Change instruction text
-        description: "请仔细查看每张图片。" // 🔧 Change sub-instruction
+        name: "thermal_instruction",
+        title: "在本部分中，您将看到不同的街道环境。请想象您在这些街道上步行的感受，选择更舒适的环境。",
+        description: "请考虑阴影、绿化、建筑布局等因素对热舒适的影响。"
       },
       
-      // 🔧 PERCEPTION QUESTION 1: Safety (2 choose 1)
-      // TO MODIFY: Change title, description, or perception type
+      // Core VATA Question
       {
         type: "imagepicker",
-        name: "safety_perception", // 🔧 Must match the name in generateQuestionImages()
-        title: "安全感知", // 🔧 Change question title
-        description: "您认为哪个街道环境最安全？", // 🔧 Change question description
-        isRequired: true, // 🔧 Set to false to make optional
-        choices: displayedImages.safety_perception, // Uses pre-generated images
-        imageFit: "cover", // Keep as "cover" for best display
-        multiSelect: false // Keep false for "choose 1", true for "choose multiple"
-      },
-      
-      // 🔧 PERCEPTION QUESTION 2: Attractiveness (2 choose 1)
-      // TO MODIFY: Replace "attractiveness" with your own perception (e.g., "beauty", "appeal")
-      {
-        type: "imagepicker",
-        name: "attractiveness_perception", // 🔧 Change name and update in generateQuestionImages()
-        title: "视觉吸引力", // 🔧 Change question title
-        description: "您认为哪个街道环境最具视觉吸引力？", // 🔧 Change question description
+        name: "thermal_affordance",
+        title: "热舒适性总体评估",
+        description: "哪个街道环境您感知具有更舒适的户外热环境？",
         isRequired: true,
-        choices: displayedImages.attractiveness_perception,
+        choices: displayedImages.thermal_affordance,
         imageFit: "cover",
         multiSelect: false
       },
       
-      // 🔧 PERCEPTION QUESTION 3: Walkability (2 choose 1)
+      // Microclimate Inference Questions
       {
-        type: "imagepicker", 
-        name: "walkability_perception", // 🔧 Change name and update in generateQuestionImages()
-        title: "步行适宜性", // 🔧 Change question title
-        description: "您认为哪个街道环境最适合步行？", // 🔧 Change question description
+        type: "imagepicker",
+        name: "temperature_intensity",
+        title: "温度强度感知",
+        description: "哪个街道环境您感知温度更高？",
         isRequired: true,
-        choices: displayedImages.walkability_perception,
+        choices: displayedImages.temperature_intensity,
         imageFit: "cover",
         multiSelect: false
       },
       
-      // 🔧 PERCEPTION QUESTION 4: Liveliness (4 choose 1)
       {
         type: "imagepicker",
-        name: "liveliness_perception", // 🔧 Change name and update in generateQuestionImages()
-        title: "活力与生机", // 🔧 Change question title
-        description: "您认为哪个街道环境最具活力和生机？", // 🔧 Change question description
+        name: "sunshine_intensity",
+        title: "辐射感知",
+        description: "哪个街道环境您感知辐射更强烈？",
         isRequired: true,
-        choices: displayedImages.liveliness_perception,
+        choices: displayedImages.sunshine_intensity,
         imageFit: "cover",
         multiSelect: false
       },
       
-      // 🔧 PERCEPTION QUESTION 5: Relaxation (4 choose 1)
       {
         type: "imagepicker",
-        name: "relaxation_perception", // 🔧 Change name and update in generateQuestionImages()
-        title: "放松与宁静", // 🔧 Change question title
-        description: "您认为哪个街道环境最令人放松平静？", // 🔧 Change question description
+        name: "humidity_inference",
+        title: "湿度感知",
+        description: "哪个街道环境您感知湿度更高？",
         isRequired: true,
-        choices: displayedImages.relaxation_perception,
+        choices: displayedImages.humidity_inference,
         imageFit: "cover",
         multiSelect: false
       },
       
-      // 🔧 PERCEPTION QUESTION 6: Cleanliness (4 choose 1)
       {
         type: "imagepicker",
-        name: "cleanliness_perception", // 🔧 Change name and update in generateQuestionImages()
-        title: "清洁与维护", // 🔧 Change question title
-        description: "您认为哪个街道环境最清洁整洁？", // 🔧 Change question description
+        name: "wind_inference",
+        title: "风速感知",
+        description: "哪个街道环境您感知风速更大？",
         isRequired: true,
-        choices: displayedImages.cleanliness_perception,
+        choices: displayedImages.wind_inference,
         imageFit: "cover",
         multiSelect: false
       }
@@ -267,146 +276,236 @@ export const surveyPages = [
   },
   
   // ========================================
-  // 📄 PAGE 3: LIKERT SCALE RATING
+  // 📄 PAGE 3: ENVIRONMENTAL ASSESSMENT
   // ========================================
-  // Shows 1 image with a rating scale question
   {
-    name: "comfort_rating",
-    title: "第三部分：舒适度评分", // 🔧 Change page title
-    description: "请评分您在这个街道环境中的舒适感。", // 🔧 Change page description
+    name: "environmental_assessment",
+    title: "第三部分：环境要素评估",
+    description: "请评估下列街道环境的各种物理要素。",
     elements: [
-      // 🔧 IMAGE DISPLAY - Shows 1 random image
       {
-        type: "image",
-        name: "comfort_image",
-        imageLink: displayedImages.comfort_rating[0]?.imageLink, // Uses pre-generated image
-        imageFit: "cover", // Keep as "cover"
-        imageHeight: "300px", // 🔧 Adjust image height
-        imageWidth: "100%" // Keep as "100%"
+        type: "expression",
+        name: "environmental_instruction",
+        title: "请比较两张图片，选择在每个维度上更突出的街道环境。"
       },
-      // 🔧 RATING QUESTION - 1-5 scale
+      
       {
-        type: "radiogroup", // Keep as "radiogroup" for rating scale
-        name: "comfort_level", // 🔧 Change question name
-        title: "在这条街道上步行您会感到多舒适？", // 🔧 Change question text
-        isRequired: true, // 🔧 Set to false to make optional
-        choices: [
-          { value: 1, text: "非常不舒适" }, // 🔧 Change scale labels
-          { value: 2, text: "不舒适" },
-          { value: 3, text: "一般" },
-          { value: 4, text: "舒适" },
-          { value: 5, text: "非常舒适" }
-          // 🔧 TO ADD MORE SCALE POINTS: Add more choices with value 6, 7, etc.
-        ]
-      }
-    ]
-  },
-  
-  // ========================================
-  // 📄 PAGE 4: CHECKBOX QUESTIONS (Select Multiple)
-  // ========================================
-  // Shows 1 image with checkbox options for element identification
-  {
-    name: "street_elements",
-    title: "第四部分：街道元素", // 🔧 Change page title
-    description: "请识别您在这个街道环境中注意到的元素。", // 🔧 Change page description
-    elements: [
-      // 🔧 IMAGE DISPLAY - Shows 1 random image
-      {
-        type: "image", 
-        name: "elements_image",
-        imageLink: displayedImages.street_elements[0]?.imageLink, // Uses pre-generated image
+        type: "imagepicker",
+        name: "traffic_flow",
+        title: "交通流量感知",
+        description: "哪个街道环境传达出更高的交通流量？",
+        isRequired: true,
+        choices: displayedImages.traffic_flow,
         imageFit: "cover",
-        imageHeight: "300px", // 🔧 Adjust image height
-        imageWidth: "100%"
+        multiSelect: false
       },
-      // 🔧 CHECKBOX QUESTION - Select multiple options
+      
       {
-        type: "checkbox", // Keep as "checkbox" for multiple selection
-        name: "visible_elements", // 🔧 Change question name
-        title: "您在这条街道中注意到了哪些元素？（可多选）", // 🔧 Change question text
-        isRequired: true, // 🔧 Set to false to make optional
-        choices: [
-          // 🔧 MODIFY THESE OPTIONS - Add/remove/change street elements
-          "树木和植被",
-          "街道家具（长凳、路灯等）",
-          "自行车道", 
-          "人行横道",
-          "公共艺术或装饰",
-          "商业建筑",
-          "住宅建筑",
-          "停车位",
-          "公共交通站点",
-          "户外餐饮区域"
-          // 🔧 TO ADD MORE OPTIONS: Add more strings to this array
-        ]
+        type: "imagepicker",
+        name: "greenery_rate",
+        title: "绿化率感知",
+        description: "哪个街道环境具有更高的绿化率？",
+        isRequired: true,
+        choices: displayedImages.greenery_rate,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "shading_area",
+        title: "阴影区域感知",
+        description: "哪个街道环境提供更多的阴影区域？",
+        isRequired: true,
+        choices: displayedImages.shading_area,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "material_comfort",
+        title: "建筑材料舒适度",
+        description: "哪个街道环境的建筑材料看起来更舒适？",
+        isRequired: true,
+        choices: displayedImages.material_comfort,
+        imageFit: "cover",
+        multiSelect: false
       }
     ]
   },
   
   // ========================================
-  // 📄 PAGE 5: RANKING QUESTIONS (Drag & Drop)
+  // 📄 PAGE 4: DESIGN QUALITY ASSESSMENT
   // ========================================
-  // Shows 1 image with drag-and-drop ranking question
+  {
+    name: "design_quality",
+    title: "第四部分：空间设计质量",
+    description: "请评估街道空间的设计质量和空间特征。",
+    elements: [
+      {
+        type: "imagepicker",
+        name: "imageability",
+        title: "可识别性",
+        description: "哪个街道环境更具特色和记忆点？",
+        isRequired: true,
+        choices: displayedImages.imageability,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "enclosure",
+        title: "围合度",
+        description: "哪个街道环境具有更好的空间围合感？",
+        isRequired: true,
+        choices: displayedImages.enclosure,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "human_scale",
+        title: "人性尺度",
+        description: "哪个街道环境更适合人的步行尺度？",
+        isRequired: true,
+        choices: displayedImages.human_scale,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "transparency",
+        title: "通透性",
+        description: "哪个街道环境的视觉通透性更好？",
+        isRequired: true,
+        choices: displayedImages.transparency,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "complexity",
+        title: "复杂性",
+        description: "哪个街道环境的视觉复杂性更高？",
+        isRequired: true,
+        choices: displayedImages.complexity,
+        imageFit: "cover",
+        multiSelect: false
+      }
+    ]
+  },
+  
+  // ========================================
+  // 📄 PAGE 5: EMOTIONAL RESPONSE ASSESSMENT
+  // ========================================
+  {
+    name: "emotional_response",
+    title: "第五部分：情感反应评估",
+    description: "请评估街道环境引发的情感反应。",
+    elements: [
+      {
+        type: "imagepicker",
+        name: "safe_feeling",
+        title: "安全感",
+        description: "哪个街道环境让您感觉更安全？",
+        isRequired: true,
+        choices: displayedImages.safe_feeling,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "beautiful_feeling",
+        title: "美观感",
+        description: "哪个街道环境让您感觉更美观？",
+        isRequired: true,
+        choices: displayedImages.beautiful_feeling,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "lively_feeling",
+        title: "活力感",
+        description: "哪个街道环境让您感觉更有活力？",
+        isRequired: true,
+        choices: displayedImages.lively_feeling,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "wealthy_feeling",
+        title: "富裕感",
+        description: "哪个街道环境让您感觉更富裕？",
+        isRequired: true,
+        choices: displayedImages.wealthy_feeling,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "boring_feeling",
+        title: "无聊感",
+        description: "哪个街道环境让您感觉更无聊？",
+        isRequired: true,
+        choices: displayedImages.boring_feeling,
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      {
+        type: "imagepicker",
+        name: "depressing_feeling",
+        title: "压抑感",
+        description: "哪个街道环境让您感觉更压抑？",
+        isRequired: true,
+        choices: displayedImages.depressing_feeling,
+        imageFit: "cover",
+        multiSelect: false
+      }
+    ]
+  },
+  
+  // ========================================
+  // 📄 PAGE 6: FEATURE IMPORTANCE RANKING
+  // ========================================
   {
     name: "feature_ranking",
-    title: "第五部分：特征重要性排序", // 🔧 Change page title
-    description: "请观察这个街道环境，并按重要性对创建愉快步行体验的特征进行排序。", // 🔧 Change page description
+    title: "第六部分：热舒适影响因素重要性排序",
+    description: "请按照对您的热舒适感受的重要性，对以下因素进行排序。",
     elements: [
-      // 🔧 IMAGE DISPLAY - Shows 1 random image
       {
         type: "image", 
         name: "ranking_image",
-        imageLink: displayedImages.feature_ranking[0]?.imageLink, // Uses pre-generated image
+        imageLink: displayedImages.feature_ranking[0]?.imageLink,
         imageFit: "cover",
-        imageHeight: "300px", // 🔧 Adjust image height
+        imageHeight: "300px",
         imageWidth: "100%"
       },
-      // 🔧 RANKING QUESTION - Drag and drop to reorder
       {
-        type: "ranking", // Keep as "ranking" for drag-and-drop functionality
-        name: "street_features", // 🔧 Change question name
-        title: "基于上面的图片，请拖拽排序这些特征，从最重要（顶部）到最不重要（底部）：", // 🔧 Change question text
-        isRequired: true, // 🔧 Set to false to make optional
+        type: "ranking",
+        name: "thermal_comfort_factors",
+        title: "请拖拽排序以下影响热舒适的因素，从最重要（顶部）到最不重要（底部）：",
+        isRequired: true,
         choices: [
-          // 🔧 MODIFY THESE RANKING OPTIONS - Each needs "value" and "text"
-          { value: "safety", text: "安全性" },
-          { value: "greenery", text: "树木和绿化" },
-          { value: "walkability", text: "人行道和步行适宜性" },
-          { value: "aesthetics", text: "视觉吸引力和美观" },
-          { value: "amenities", text: "街道设施和便民服务" }
-          // 🔧 TO ADD MORE OPTIONS: Add more objects with value and text properties
+          { value: "shading", text: "阴影和遵阳" },
+          { value: "greenery", text: "绿化和植被" },
+          { value: "ventilation", text: "通风和空气流动" },
+          { value: "building_layout", text: "建筑布局和密度" },
+          { value: "water_features", text: "水体和喷泉" },
+          { value: "pavement_material", text: "路面材料和颜色" },
+          { value: "street_width", text: "街道宽度和开放性" }
         ]
-      }
-    ]
-  },
-  
-  // ========================================
-  // 📄 PAGE 6: TEXT INPUT QUESTIONS (Open-ended)
-  // ========================================
-  // Shows 1 image with open-ended text response
-  {
-    name: "open_feedback",
-    title: "第六部分：您的想法", // 🔧 Change page title
-    description: "最后，请分享您对什么构成优秀街道环境的想法。", // 🔧 Change page description
-    elements: [
-      // 🔧 IMAGE DISPLAY - Shows 1 random image
-      {
-        type: "image", 
-        name: "feedback_image",
-        imageLink: displayedImages.open_feedback[0]?.imageLink, // Uses pre-generated image
-        imageFit: "cover",
-        imageHeight: "300px", // 🔧 Adjust image height
-        imageWidth: "100%"
-      },
-      // 🔧 TEXT INPUT QUESTION - Open-ended response
-      {
-        type: "comment", // Use "comment" for multi-line text, "text" for single line
-        name: "general_feedback", // 🔧 Change question name
-        title: "看到这条街道，什么使街道环境对您有吸引力？（可选）", // 🔧 Change question text
-        description: "请分享您对街道设计、步行适宜性或其他对您重要的方面的想法。", // 🔧 Change question description
-        isRequired: false, // 🔧 Set to true to make required
-        maxLength: 500 // 🔧 Adjust character limit (or remove for unlimited)
       }
     ]
   }
@@ -419,8 +518,8 @@ export const surveyPages = [
 
 export const surveyJson = {
   // 🔧 SURVEY TITLE AND DESCRIPTION
-  title: "住区街景图片热感知", // 🔧 Change main survey title
-  description: "这项调研将帮助我们了解人们对不同住区街道环境的感知。您的回答将有助于改善住区设计。", // 🔧 Change survey description
+  title: "住区街景热舒适感知调研",
+  description: "您好！我们正在进行一项关于不同类型住区街道热舒适感知的研究。该研究基于热负担能力（Thermal Affordance）理论，旨在了解哪些空间要素影响人们的热舒适感受。您的参与将为构建更舒适、可持续的城市环境提供科学依据。调研预计需要15-20分钟。"
   
   // 🔧 SURVEY STRUCTURE
   pages: surveyPages, // Uses the pages defined above
@@ -430,7 +529,7 @@ export const surveyJson = {
   showProgressBar: "aboveheader", // "top", "bottom", "aboveheader", "belowheader", or "off"
   progressBarType: "questions", // "pages" or "questions" - Progress calculation method
   autoGrowComment: true, // Auto-expand text areas as user types
-  showPreviewBeforeComplete: "showAllQuestions" // "showAllQuestions", "showAnsweredQuestions", or "noPreview"
+  showPreviewBeforeComplete: "noPreview" // 去掉预览功能，必答题完成即可提交
   
   // 🔧 ADDITIONAL SETTINGS YOU CAN ADD:
   // completedHtml: "<h3>Thank you for your participation!</h3>", // Custom completion message
