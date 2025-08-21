@@ -9,7 +9,7 @@ export const surveyConfig = {
     showProgressBar: "aboveheader",
     progressBarType: "questions",
     autoGrowComment: true,
-    showPreviewBeforeComplete: "showAllQuestions"
+    showPreviewBeforeComplete: "noPreview"
   },
   
   // Contact Information - Replace with your own
