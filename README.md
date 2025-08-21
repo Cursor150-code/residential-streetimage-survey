@@ -495,3 +495,4 @@ MIT License - feel free to use for research and commercial projects.
 **That's it! Your streetscape perception survey is ready to collect responses! 🎉**
 
 ---
+# Trigger Vercel redeploy - 2025年08月21日 23:54:01
