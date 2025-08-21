@@ -503,7 +503,7 @@ export const surveyPages = [
 export const surveyJson = {
   // 🔧 SURVEY TITLE AND DESCRIPTION
   title: "住区街景热舒适感知调研",
-  description: "您好！我们正在进行一项关于不同类型住区街道热舒适感知的研究。该研究旨在了解哪些空间要素影响人们的热舒适感受。您的参与将为构建更舒适、可持续的城市居住环境提供科学依据。调研预计需要10-15分钟。"
+  description: "您好！我们正在进行一项关于不同类型住区街道热舒适感知的研究。该研究旨在了解哪些空间要素影响人们的热舒适感受。您的参与将为构建更舒适、可持续的城市居住环境提供科学依据。调研预计需要10-15分钟。",
   
   // 🔧 SURVEY STRUCTURE
   pages: surveyPages, // Uses the pages defined above
