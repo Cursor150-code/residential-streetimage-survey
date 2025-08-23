@@ -15,6 +15,15 @@ A simple and powerful platform for conducting streetscape perception surveys wit
 
 **This platform was initially developed for the [Thermal Affordance research](https://github.com/Sijie-Yang/Thermal-Affordance), which introduces a novel framework for assessing urban thermal comfort using street view imagery and human perception surveys.**
 
+## 🌍 New: Bilingual Support (中英双语)
+
+✨ **Full Chinese-English bilingual interface**
+- 🇨🇳 完整中文界面支持 | 🇺🇸 Complete English interface support  
+- 🔄 One-click language switching | 一键语言切换
+- 💾 Remembers user language preference | 记住用户语言偏好
+- 📱 Mobile-responsive design | 移动设备响应式设计
+- 🎯 21 perception indicators in both languages | 21个感知指标双语支持
+
 ## 🚀 Quick Deploy (5 minutes)
 
 ### Step 1: Set up Supabase Database (2 minutes)
