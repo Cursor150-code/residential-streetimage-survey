@@ -5,9 +5,22 @@
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-/* Survey container customization */
+/* Survey container customization - 移除所有背景 */
 .app-container .sv-root {
-  background: transparent;
+  background: transparent !important;
+}
+
+.app-container .sv-root .sv-body {
+  background: transparent !important;
+}
+
+.app-container .sv-root .sv-container-modern {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.app-container .sv-root .sv-page {
+  background: transparent !important;
 }
 
 /* Loading state */
