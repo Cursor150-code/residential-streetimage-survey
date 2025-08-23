@@ -19,6 +19,80 @@
   display: none !important;
 }
 
+/* 强制移除进度条和侧边指示器 */
+.sv-progress,
+.sv-progress-bar,
+.sv-progress__bar,
+.sv-progress-bar__indicator,
+.sv-sidebar,
+.sv-navigation,
+.sv-left-panel,
+.sv-right-panel,
+.sv-header-survey,
+.sv-brand-info {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 移除任何左侧的蓝色条带或边框 */
+.sv-root {
+  border-left: none !important;
+  border-right: none !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 移除可能的渐变背景和侧边装饰 */
+.sv-root,
+.sv-root > *,
+.sv-body,
+.sv-body > * {
+  border: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-image: none !important;
+}
+
+/* 专门针对蓝色进度条的移除 */
+.sv-header__progress,
+.sv-header__progress-bar,
+.sv-progress-buttons,
+.sv-action-bar,
+.sv-action-bar__progress,
+[class*="progress"],
+[class*="Progress"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 移除任何可能的左侧装饰线条 */
+body, html, #root {
+  overflow-x: hidden !important;
+}
+
+.sv-root {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* 确保语言切换按钮不被任何元素遮挡 */
+.language-switcher {
+  position: fixed !important;
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}
+
 /* Fix image display in survey questions */
 .sd-imagepicker__item img,
 .sd-image img {

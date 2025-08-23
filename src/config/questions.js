@@ -524,7 +524,7 @@ export const getSurveyJson = (currentLanguage = 'zh') => {
     
     // 🔧 DISPLAY SETTINGS - Customize survey appearance
     showQuestionNumbers: "off", // "on", "off", or "onPage" - Show question numbers
-    showProgressBar: "aboveheader", // "top", "bottom", "aboveheader", "belowheader", or "off"
+    showProgressBar: "off", // "top", "bottom", "aboveheader", "belowheader", or "off" - 禁用进度条
     progressBarType: "questions", // "pages" or "questions" - Progress calculation method
     autoGrowComment: true, // Auto-expand text areas as user types
     showPreviewBeforeComplete: "noPreview" // 去掉预览功能，必答题完成即可提交
