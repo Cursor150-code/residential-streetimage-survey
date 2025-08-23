@@ -2,26 +2,27 @@
 
 .language-switcher {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
+  top: 15px;
+  left: 15px;
+  z-index: 9999;
 }
 
 .language-switch-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px solid #e0e0e0;
-  border-radius: 25px;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   color: #333;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  min-width: auto;
 }
 
 .language-switch-btn:hover {
@@ -29,7 +30,7 @@
   border-color: #007bff;
   color: #007bff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
 }
 
 .language-switch-btn:active {
@@ -38,7 +39,7 @@
 }
 
 .language-flag {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
 }
 
@@ -50,18 +51,19 @@
 /* Mobile responsive */
 @media (max-width: 768px) {
   .language-switcher {
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    left: 10px;
   }
   
   .language-switch-btn {
-    padding: 8px 12px;
-    font-size: 13px;
-    border-radius: 20px;
+    padding: 6px 10px;
+    font-size: 11px;
+    border-radius: 16px;
+    gap: 4px;
   }
   
   .language-flag {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
