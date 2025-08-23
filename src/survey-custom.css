@@ -93,6 +93,48 @@ body, html, #root {
   pointer-events: auto !important;
 }
 
+/* 强制移除所有可能的左侧装饰条带 */
+.sv-root::before,
+.sv-body::before,
+.sv-container-modern::before,
+.sv-page::before,
+.sv-header::before,
+[class*="sv-"]::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  border: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 移除任何绝对定位的装饰元素 */
+.sv-root [style*="position: absolute"],
+.sv-root [style*="position:absolute"],
+.sv-body [style*="position: absolute"],
+.sv-body [style*="position:absolute"] {
+  display: none !important;
+}
+
+/* 移除特定的Survey.js主题装饰 */
+.sv-defaultV2-root,
+.sv-defaultV2-body {
+  border: none !important;
+  border-left: none !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* 强制移除Survey容器的所有装饰 */
+.sv-container-modern {
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 20px !important;
+}
+
 /* Fix image display in survey questions */
 .sd-imagepicker__item img,
 .sd-image img {
