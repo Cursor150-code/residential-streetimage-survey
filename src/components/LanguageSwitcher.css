@@ -10,36 +10,34 @@
 .language-switch-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  gap: 4px;
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 12px;
-  font-weight: 500;
-  color: #333;
+  font-size: 11px;
+  font-weight: 600;
+  color: #007bff;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
+  text-decoration: underline;
   min-width: auto;
 }
 
 .language-switch-btn:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: #007bff;
-  color: #007bff;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
+  background: rgba(0, 123, 255, 0.1);
+  color: #0056b3;
+  transform: scale(1.05);
+  text-decoration: none;
 }
 
 .language-switch-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: scale(0.98);
+  color: #003d82;
 }
 
 .language-flag {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1;
 }
 
@@ -51,34 +49,31 @@
 /* Mobile responsive */
 @media (max-width: 768px) {
   .language-switcher {
-    top: 10px;
-    left: 10px;
+    top: 8px;
+    left: 8px;
   }
   
   .language-switch-btn {
-    padding: 6px 10px;
-    font-size: 11px;
-    border-radius: 16px;
-    gap: 4px;
+    padding: 3px 6px;
+    font-size: 10px;
+    gap: 3px;
   }
   
   .language-flag {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .language-switch-btn {
-    background: rgba(40, 44, 52, 0.95);
-    border-color: #4a4a4a;
-    color: #e0e0e0;
+    background: transparent;
+    color: #66b3ff;
   }
   
   .language-switch-btn:hover {
-    background: rgba(40, 44, 52, 1);
-    border-color: #0056b3;
-    color: #66b3ff;
+    background: rgba(102, 179, 255, 0.1);
+    color: #99ccff;
   }
 }
 
@@ -89,21 +84,22 @@
 
 /* Focus styles for accessibility */
 .language-switch-btn:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+  background: rgba(0, 123, 255, 0.1);
 }
 
 /* High contrast mode */
 @media (prefers-contrast: high) {
   .language-switch-btn {
-    background: white;
-    border: 3px solid black;
-    color: black;
+    background: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+    text-decoration: none;
   }
   
   .language-switch-btn:hover {
-    background: black;
+    background: #007bff;
     color: white;
   }
 }
