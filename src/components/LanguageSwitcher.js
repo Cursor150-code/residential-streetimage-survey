@@ -11,20 +11,32 @@ const LanguageSwitcher = ({ currentLanguage, onLanguageChange }) => {
   };
 
   return (
-    <div className="language-switcher">
-      <button 
-        className="language-switch-btn"
-        onClick={handleLanguageSwitch}
-        title={currentLanguage === 'zh' ? 'Switch to English' : '切换到中文'}
-      >
-        <span className="language-flag">
-          {currentLanguage === 'zh' ? '🇺🇸' : '🇨🇳'}
-        </span>
-        <span className="language-text">
-          {t.languageSwitch}
-        </span>
-      </button>
-    </div>
+    <button 
+      className="language-switcher language-switch-btn"
+      onClick={handleLanguageSwitch}
+      title={currentLanguage === 'zh' ? 'Switch to English' : '切换到中文'}
+      style={{
+        position: 'absolute',
+        top: '10px',
+        left: '10px',
+        zIndex: 999999,
+        background: 'none',
+        border: 'none',
+        margin: 0,
+        padding: '2px 4px',
+        fontSize: '10px',
+        color: '#007bff',
+        textDecoration: 'underline',
+        cursor: 'pointer'
+      }}
+    >
+      <span style={{fontSize: '10px', marginRight: '2px'}}>
+        {currentLanguage === 'zh' ? '🇺🇸' : '🇨🇳'}
+      </span>
+      <span style={{fontSize: '10px'}}>
+        {t.languageSwitch}
+      </span>
+    </button>
   );
 };
 

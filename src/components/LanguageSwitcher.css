@@ -1,105 +1,60 @@
-/* Language Switcher Component Styles */
+/* Language Switcher Component Styles - 极简设计 */
 
 .language-switcher {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 9999;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 999999;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .language-switch-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  background: transparent;
+  display: inline-block;
+  margin: 0;
+  padding: 2px 4px;
+  background: none;
+  background-color: transparent;
   border: none;
-  border-radius: 12px;
+  border-radius: 0;
   cursor: pointer;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 500;
   color: #007bff;
-  transition: all 0.2s ease;
   text-decoration: underline;
+  line-height: 1.2;
   min-width: auto;
+  width: auto;
+  height: auto;
+  outline: none;
+  box-shadow: none;
 }
 
 .language-switch-btn:hover {
-  background: rgba(0, 123, 255, 0.1);
   color: #0056b3;
-  transform: scale(1.05);
   text-decoration: none;
+  background: none;
+  background-color: transparent;
 }
 
 .language-switch-btn:active {
-  transform: scale(0.98);
   color: #003d82;
+  background: none;
 }
 
 .language-flag {
-  font-size: 12px;
-  line-height: 1;
+  font-size: 10px;
+  margin-right: 2px;
 }
 
 .language-text {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 10px;
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .language-switcher {
-    top: 8px;
-    left: 8px;
-  }
-  
-  .language-switch-btn {
-    padding: 3px 6px;
-    font-size: 10px;
-    gap: 3px;
-  }
-  
-  .language-flag {
-    font-size: 10px;
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .language-switch-btn {
-    background: transparent;
-    color: #66b3ff;
-  }
-  
-  .language-switch-btn:hover {
-    background: rgba(102, 179, 255, 0.1);
-    color: #99ccff;
-  }
-}
-
-/* Animation for smooth transitions */
-.language-switcher * {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Focus styles for accessibility */
-.language-switch-btn:focus {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
-  background: rgba(0, 123, 255, 0.1);
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  .language-switch-btn {
-    background: transparent;
-    border: 2px solid #007bff;
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .language-switch-btn:hover {
-    background: #007bff;
-    color: white;
-  }
-}
+/* 移除所有额外样式和媒体查询 */
